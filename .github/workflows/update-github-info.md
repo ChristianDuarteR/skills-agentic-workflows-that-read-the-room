@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
-model: auto
+model: claude-3.5-sonnet
 tools:
   edit:
   web-fetch:
