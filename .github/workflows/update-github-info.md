@@ -1,38 +1,40 @@
 ---
 name: update-github-info
-description: Refresh GitHub Info with practical updates from the official GitHub Blog and Changelog.
+description: Draft website updates for Mona's GitHub Info site from official GitHub sources.
 on:
-  schedule: daily
   workflow_dispatch:
-permissions:
-  contents: read
-model: gpt-4o
+  schedule:
+    - cron: '17 9 * * *'
+safe-outputs:
+  create-pull-request:
+    title-prefix: "[mona] "
+    draft: true
+    fallback-as-issue: false
 tools:
   edit:
   web-fetch:
 network:
   allowed:
-    - defaults
-    - github.blog
     - github.com
+    - github.blog
     - awesome-copilot.github.com
-safe-outputs:
-  create-pull-request:
-    draft: true
-    allowed-files:
-      - site/content/github-info.md
 ---
 
-Read `notes/mona-notes.md` and `site/content/github-info.md` first. Follow Mona's editorial guidance and preserve the page's existing practical focus and style.
+# Update Mona's GitHub Info website
 
-Use the web-fetch tool to read both:
+Read `notes/mona-notes.md` before making changes.
 
-- https://github.blog/latest/
-- https://github.blog/changelog/
-- https://awesome-copilot.github.com/workflows/
+Use these sources:
+- `notes/mona-notes.md`
+- GitHub Blog: https://github.blog/latest/
+- GitHub Changelog: https://github.blog/changelog/
+- Awesome Copilot workflows: https://awesome-copilot.github.com/workflows/
 
-Identify only recent, useful updates that help developers learn GitHub faster. Verify every detail against its source, link to the relevant Blog, Changelog, or Awesome Copilot workflow page, and keep summaries short and practical. Do not add speculative, redundant, or unverified information.
+Update `site/content/github-info.md` with concise,
+practical updates for readers and include source context when content comes
+from the GitHub Blog, GitHub Changelog, or Awesome Copilot workflows.
 
-Update only `site/content/github-info.md`, retaining useful existing content and integrating any new findings where they fit. If neither source has a meaningful update for the page, leave the file unchanged.
-
-When the page has changed, use the create-pull-request safe output to open a non-draft pull request for Mona's editorial review. Summarize the updates and include the source links in the pull request description; address Mona directly. Do not commit changes directly to the default branch, merge the pull request, or modify any other file.
+Open a pull request for Mona to review.
+Use a pull request title that mentions Mona or GitHub Info.
+Do not write directly to `main`;
+rely on `safe-outputs` with `create-pull-request`.
