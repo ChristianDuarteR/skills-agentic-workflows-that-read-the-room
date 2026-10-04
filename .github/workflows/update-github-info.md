@@ -14,6 +14,7 @@ network:
     - defaults
     - github.blog
     - github.com
+    - awesome-copilot.github.com
 safe-outputs:
   create-pull-request:
     draft: false
@@ -27,8 +28,9 @@ Use the web-fetch tool to read both:
 
 - https://github.blog/latest/
 - https://github.blog/changelog/
+- https://awesome-copilot.github.com/workflows/
 
-Identify only recent, useful updates that help developers learn GitHub faster. Verify every detail against the official source, link to the relevant Blog or Changelog item, and keep summaries short and practical. Do not add speculative, redundant, or unverified information.
+Identify only recent, useful updates that help developers learn GitHub faster. Verify every detail against its source, link to the relevant Blog, Changelog, or Awesome Copilot workflow page, and keep summaries short and practical. Do not add speculative, redundant, or unverified information.
 
 Update only `site/content/github-info.md`, retaining useful existing content and integrating any new findings where they fit. If neither source has a meaningful update for the page, leave the file unchanged.
 
