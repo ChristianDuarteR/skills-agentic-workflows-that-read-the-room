@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
-model: gpt-5.4
+model: claude-3.5-sonnet
 tools:
   edit:
   web-fetch:
