@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
-model: claude-3.5-sonnet
+model: gpt-4o
 tools:
   edit:
   web-fetch:
@@ -18,7 +18,7 @@ network:
     - awesome-copilot.github.com
 safe-outputs:
   create-pull-request:
-    draft: false
+    draft: true
     allowed-files:
       - site/content/github-info.md
 ---
